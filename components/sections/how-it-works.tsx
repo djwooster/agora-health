@@ -71,8 +71,8 @@ export function HowItWorks() {
 
         {/* Steps */}
         <div ref={ref} className="relative">
-          {/* Desktop connector line */}
-          <div className="hidden lg:block absolute top-16 left-[16.67%] right-[16.67%] h-px bg-[#E3D5C5]">
+          {/* Desktop connector line — sits between number and icon */}
+          <div className="hidden lg:block absolute top-[5.5rem] left-[20%] right-[20%] h-px bg-[#E3D5C5]">
             <motion.div
               className="h-full bg-[#E3B77F] origin-left"
               initial={{ scaleX: 0 }}
@@ -88,21 +88,21 @@ export function HowItWorks() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.2 }}
-                className="flex flex-col items-center lg:items-center text-center relative"
+                className="flex flex-col items-center text-center relative"
               >
                 {/* Mobile connector */}
                 {i < steps.length - 1 && (
                   <div className="lg:hidden w-px h-12 bg-[#E3D5C5] my-2 mx-auto" />
                 )}
 
+                {/* Large step number */}
+                <span className="text-7xl font-bold font-serif text-[#E3B77F] leading-none mb-4 select-none">
+                  {step.number}
+                </span>
+
                 {/* Icon circle */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-full bg-[#F5DFB8] border-2 border-[#E3B77F] flex items-center justify-center relative z-10">
-                    {step.icon}
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#E3B77F] flex items-center justify-center">
-                    <span className="text-xs font-bold text-[#1C2733]">{i + 1}</span>
-                  </div>
+                <div className="w-16 h-16 rounded-full bg-[#F5DFB8] border-2 border-[#E3B77F] flex items-center justify-center mb-6">
+                  {step.icon}
                 </div>
 
                 <h3 className="text-2xl font-bold font-serif text-[#313E4C] mb-3">
